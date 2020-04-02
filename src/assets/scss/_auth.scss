@@ -1,0 +1,47 @@
+@import "partials";
+
+.auth {
+   height: 100vh;
+
+   .auth-container {
+      @include centeredContainer($authContainerWith);
+      background: $white_color;
+      padding-bottom: 40px;
+      width: 100%;
+      box-shadow: 0 0 13px -8px rgba(0, 0, 0, .75);
+
+      .auth-container__nav {
+         border-bottom: 1px solid $border_color;
+
+         .auth-container-nav__link {
+            text-align: center;
+            padding: 15px 0;
+            width: 50%;
+            display: block;
+            color: $secondary_font;
+            font-weight: 600;
+
+            span {
+               vertical-align: middle;
+            }
+
+            &:hover {
+               color: $theme_color;
+            }
+         }
+
+         .auth-container-nav__active {
+            color: $theme_color;
+            border-bottom: 2px solid $theme_color;
+         }
+      }
+
+      .auth-container__route {
+         padding: 40px 50px 20px;
+
+         .auth-container-route__form-item {
+            margin-top: 10px;
+         }
+      }
+   }
+}

@@ -1,0 +1,52 @@
+$main_bg_color: #F5F7FB;
+$primary_font: #282828;
+$secondary_font: #808080;
+$white_color: #fff;
+$border_color: #e8e8e8;
+$theme_color: #1890FF;
+
+$authContainerWith: 400px;
+
+@mixin centeredContainer($width) {
+   max-width: $width;
+   margin: 0 auto;
+}
+
+.flex {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+}
+
+.flex-wrap {
+   -ms-flex-wrap: wrap;
+   flex-wrap: wrap;
+}
+
+.j-sb {
+   -webkit-box-pack: justify;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
+}
+
+.j-se {
+   justify-content: space-evenly;
+}
+
+.j-center {
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+}
+
+.flex-align-center {
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+}
+
+.flex-align-bottom {
+   -webkit-box-align: end;
+   -ms-flex-align: end;
+   align-items: flex-end;
+}
