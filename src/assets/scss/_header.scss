@@ -1,0 +1,74 @@
+@import "partials";
+
+.navigation {
+   padding-top: 10px;
+   padding-bottom: 15px;
+   border-bottom: 1px solid $border_color;
+   @include centeredContainer(1170px);
+   background: $main_wrapper_color;
+
+   .navigation-main {
+      padding-left: 30px;
+
+      .navigation-main__logo {
+         font-size: 24px;
+      }
+
+      .navigation-main__search {
+         width: 308px;
+         margin-left: 20px;
+      }
+
+      .navigation-main__menu {
+         margin-top: 15px;
+
+         .navigation-main-menu__item {
+            @include defaultListMargin(20px);
+
+            .navigation-main-menu-item__link {
+               color: $primary_font;
+               transition: all 0.1s;
+               @include defaultListHover(none, $theme_color);
+            }
+         }
+      }
+   }
+
+   .navigation-user {
+      padding-right: 30px;
+
+      .navigation-user-info {
+         margin-bottom: 15px;
+         text-align: right;
+
+         .navigation-user-info__link {
+            color: $primary_font;
+            transition: all 0.1s;
+            @include defaultListHover(none, $theme_color);
+
+            .navigation-user-info-link__desc {
+               margin-right: 10px;
+            }
+         }
+      }
+
+      .navigation-user-desc {
+         .navigation-user-desc__link {
+            text-align: center;
+            color: rgba(0, 0, 0, 0.45);
+            padding-right: 10px;
+            border-right: 1px solid $border_color;
+            @include defaultListMargin(10px);
+            @include defaultListHover(none, $theme_color);
+
+            &:last-child {
+               border-right: none;
+            }
+
+            .navigation-user-desc-link__icon {
+               font-size: 24px;
+            }
+         }
+      }
+   }
+}
