@@ -1,0 +1,70 @@
+@import "partials";
+
+.personal-container {
+   .personal-container__title {
+      font-weight: 300;
+      margin-bottom: 20px;
+   }
+
+   .personal-container__box {
+      .personal-container-box__list {
+         width: 70%;
+
+         .personal-container-box-list__item {
+            width: 31%;
+            margin-bottom: 30px;
+
+            .personal-container-box-list-item__overlay {
+               position: relative;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+
+               span {
+                  position: absolute;
+                  font-size: 52px;
+                  color: $white_color;
+               }
+            }
+
+            .ant-card-cover {
+               img {
+                  width: 100%;
+               }
+            }
+         }
+
+         .personal-container-box-list__item-cancel {
+            margin-bottom: 0;
+         }
+      }
+
+      .personal-container-box__text {
+         width: 25%;
+
+         .personal-container-box__info {
+            border: 1px solid $border_color;
+
+            .personal-container-box-info__item {
+               border-bottom: 1px solid $border_color;
+
+               &:last-child {
+                  border-bottom: none;
+               }
+
+               .personal-container-box-info-item__link {
+                  display: block;
+                  padding: 10px 0 10px 15px;
+                  color: $primary_font;
+
+                  @include defaultListHover($theme_color, $white_color);
+               }
+            }
+         }
+
+         .personal-container-box__exit {
+            display: block;
+         }
+      }
+   }
+}

@@ -1,6 +1,24 @@
+@import "partials";
+@import "personal";
+@import "header";
 @import "auth";
 
 html, body {
    background: $main_bg_color !important;
    font-size: 15px !important;
+}
+
+.wrapper {
+   @include centeredContainer(1170px);
+   background: $main_wrapper_color;
+   padding: 20px 30px 30px 30px;
+   height: 100vh;
+}
+
+body ul, body li, body p,
+body h1, body h2, body h3,
+body h4, body h5, body h6 {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
 }

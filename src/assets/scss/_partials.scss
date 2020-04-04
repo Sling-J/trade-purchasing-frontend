@@ -1,8 +1,9 @@
-$main_bg_color: #F5F7FB;
+$main_bg_color: #F6F5F3;
+$main_wrapper_color: #fff;
 $primary_font: #282828;
 $secondary_font: #808080;
 $white_color: #fff;
-$border_color: #e8e8e8;
+$border_color: #e5e5e5;
 $theme_color: #1890FF;
 
 $authContainerWith: 400px;
@@ -10,6 +11,23 @@ $authContainerWith: 400px;
 @mixin centeredContainer($width) {
    max-width: $width;
    margin: 0 auto;
+}
+
+@mixin defaultListHover($bg_color, $font_color) {
+   transition: all 0.3s;
+
+   &:hover {
+      background: $bg_color;
+      color: $font_color;
+   }
+}
+
+@mixin defaultListMargin($margin) {
+   margin-right: $margin;
+
+   &:last-child {
+      margin-right: 0;
+   }
 }
 
 .flex {
@@ -39,14 +57,18 @@ $authContainerWith: 400px;
    justify-content: center;
 }
 
-.flex-align-center {
+.fa-center {
    -webkit-box-align: center;
    -ms-flex-align: center;
    align-items: center;
 }
 
-.flex-align-bottom {
+.fa-bottom {
    -webkit-box-align: end;
    -ms-flex-align: end;
    align-items: flex-end;
+}
+
+.fd-column {
+   flex-direction: column;
 }

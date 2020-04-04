@@ -11,7 +11,7 @@ import {urls} from "../../config/urls";
 
 const Auth = () => {
    return (
-      <div className="auth flex j-center flex-align-center">
+      <div className="auth flex j-center fa-center">
          <div className="auth-container">
             <div className="auth-container__nav flex j-sb">
                <NavLink
