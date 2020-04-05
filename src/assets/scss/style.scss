@@ -2,6 +2,7 @@
 @import "personal";
 @import "header";
 @import "auth";
+@import "cart";
 
 html, body {
    background: $main_bg_color !important;
@@ -11,8 +12,16 @@ html, body {
 .wrapper {
    @include centeredContainer($main_wrapper_width);
    background: $main_wrapper_color;
-   padding: 20px 30px 30px 30px;
    height: 86.5vh;
+}
+
+.wrapper-breadcrumbs {
+   padding: 20px 30px 0 30px;
+}
+
+.wrapper-color {
+   background: $main_wrapper_color;
+   padding: 0 30px 50px 30px;
 }
 
 body ul, body li, body p,

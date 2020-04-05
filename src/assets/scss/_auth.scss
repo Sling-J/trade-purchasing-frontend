@@ -4,7 +4,7 @@
    height: 100vh;
 
    .auth-container {
-      @include centeredContainer($authContainerWith);
+      @include centeredContainer($auth_container_with);
       background: $white_color;
       padding-bottom: 40px;
       width: 100%;

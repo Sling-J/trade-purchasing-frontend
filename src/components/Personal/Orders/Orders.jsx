@@ -200,20 +200,21 @@ class Orders extends React.Component {
             title: 'Наименование товара',
             dataIndex: 'product',
             key: 'product',
-            width: '20%',
+            width: '15%',
             ...this.getColumnSearchProps('product'),
          },
          {
             title: 'Название компании',
             dataIndex: 'company',
             key: 'company',
-            width: '20%',
+            width: '15%',
             ...this.getColumnSearchProps('company'),
          },
          {
             title: 'Дата заказа',
             dataIndex: 'date',
             key: 'date',
+            width: '7%'
          },
          {
             title: 'Кол-во',

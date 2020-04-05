@@ -10,8 +10,9 @@ const breadcrumbNameMap = {
    [urls.personal.path]: urls.personal.name,
    [urls.profile.path]: urls.profile.name,
    [urls.orders.path]: urls.orders.name,
+   [urls.cart.path]: urls.cart.name,
+   [urls.wishes.path]: urls.wishes.name,
 };
-
 const Breadcrumbs = withRouter(props => {
    const {location} = props;
    const pathSnippets = location.pathname.split('/').filter(i => i);

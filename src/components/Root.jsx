@@ -7,6 +7,7 @@ import {urls} from "../config/urls";
 import Auth from "./Auth/Auth";
 import Personal from "./Personal/Personal";
 import Profile from "./Personal/Profile/Profile";
+import Cart from "./Personal/Cart/Cart";
 import Orders from "./Personal/Orders/Orders";
 
 import Header from "./Header/Header";
@@ -18,13 +19,19 @@ const Root = () => (
       <Header/>
 
       <div className="wrapper">
-         <Breadcrumbs/>
+         <div className="wrapper-breadcrumbs">
+            <Breadcrumbs/>
+         </div>
 
-         <Switch>
-            <Route exact path={urls.personal.path} component={Personal}/>
-            <Route path={urls.profile.path} component={Profile}/>
-            <Route path={urls.orders.path} component={Orders}/>
-         </Switch>
+         <div className="wrapper-color">
+            <Switch>
+               <Route exact path={urls.personal.path} component={Personal}/>
+               <Route path={urls.profile.path} component={Profile}/>
+               <Route path={urls.orders.path} component={Orders}/>
+               <Route path={urls.cart.path} component={Cart}/>
+               <Route path={urls.wishes.path} component={Cart}/>
+            </Switch>
+         </div>
       </div>
    </Fragment>
 );

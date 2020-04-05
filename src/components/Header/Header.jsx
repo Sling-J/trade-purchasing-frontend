@@ -47,27 +47,27 @@ const Header = () => {
             </div>
 
             <div className="navigation-user-desc flex j-sb fa-center">
-               <a className="navigation-user-desc__link" href="#">
-                  <Badge count={0}>
+               <Link className="navigation-user-desc__link" to={urls.wishes.path}>
+                  <Badge count={1}>
                      <HeartOutlined className="navigation-user-desc-link__icon"/>
                   </Badge>
 
                   <p className="navigation-user-desc-link__title">Желания</p>
-               </a>
+               </Link>
 
-               <a className="navigation-user-desc__link" href="#">
+               <Link className="navigation-user-desc__link" to={urls.orders.path}>
                   <HistoryOutlined className="navigation-user-desc-link__icon"/>
 
                   <p className="navigation-user-desc">История</p>
-               </a>
+               </Link>
 
-               <a className="navigation-user-desc__link" href="#">
+               <Link className="navigation-user-desc__link" to={urls.cart.path}>
                   <Badge count={2}>
                      <ShoppingCartOutlined className="navigation-user-desc-link__icon"/>
                   </Badge>
 
                   <p className="navigation-user-desc">Корзина</p>
-               </a>
+               </Link>
             </div>
          </div>
       </nav>

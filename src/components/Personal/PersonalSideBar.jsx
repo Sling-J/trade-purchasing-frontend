@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 import {Button} from "antd";
 
@@ -9,26 +9,56 @@ const PersonalSideBar = () => (
    <div className="personal-container-box__text">
       <ul className="personal-container-box__info">
          <li className="personal-container-box-info__item">
-            <Link to={urls.profile.path} className="personal-container-box-info-item__link">
+            <NavLink
+               to={urls.personal.path}
+               className="personal-container-box-info-item__link"
+               activeClassName="personal-container-box-info-item__link-active"
+               exact
+            >
+               Личный кабинет
+            </NavLink>
+         </li>
+         <li className="personal-container-box-info__item">
+            <NavLink
+               to={urls.profile.path}
+               className="personal-container-box-info-item__link"
+               activeClassName="personal-container-box-info-item__link-active"
+            >
                Личные данные
-            </Link>
+            </NavLink>
          </li>
          <li className="personal-container-box-info__item">
-            <a href="#" className="personal-container-box-info-item__link">Корзина</a>
+            <NavLink
+               to={urls.cart.path}
+               className="personal-container-box-info-item__link"
+               activeClassName="personal-container-box-info-item__link-active"
+            >
+               Корзина
+            </NavLink>
          </li>
          <li className="personal-container-box-info__item">
-            <Link to={urls.orders.path} className="personal-container-box-info-item__link">
+            <NavLink
+               to={urls.orders.path}
+               className="personal-container-box-info-item__link"
+               activeClassName="personal-container-box-info-item__link-active"
+            >
                История заказов
-            </Link>
+            </NavLink>
+         </li>
+         <li className="personal-container-box-info__item">
+            <NavLink
+               to={urls.wishes.path}
+               className="personal-container-box-info-item__link"
+               activeClassName="personal-container-box-info-item__link-active"
+            >
+               Список желаний
+            </NavLink>
          </li>
          <li className="personal-container-box-info__item">
             <a href="#" className="personal-container-box-info-item__link">Регистрация компаний</a>
          </li>
          <li className="personal-container-box-info__item">
             <a href="#" className="personal-container-box-info-item__link">Контакты</a>
-         </li>
-         <li className="personal-container-box-info__item">
-            <a href="#" className="personal-container-box-info-item__link">Главная</a>
          </li>
       </ul>
 

@@ -25,6 +25,11 @@
                border-bottom: none;
             }
 
+            .personal-container-box-info-item__link-active {
+               background: $theme_color;
+               color: $white_color !important;
+            }
+
             .personal-container-box-info-item__link {
                display: block;
                padding: 10px 0 10px 15px;

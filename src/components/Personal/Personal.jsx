@@ -41,6 +41,7 @@ const Personal = () => {
 
             <Card
                className="personal-container-box-list__item"
+               onClick={() => changeUrl(urls.cart.path)}
                hoverable
                cover={
                   <div className="personal-container-box-list-item__overlay">
@@ -92,6 +93,7 @@ const Personal = () => {
 
             <Card
                className="personal-container-box-list__item personal-container-box-list__item-cancel"
+               onClick={() => changeUrl(urls.wishes.path)}
                hoverable
                cover={
                   <div className="personal-container-box-list-item__overlay">
