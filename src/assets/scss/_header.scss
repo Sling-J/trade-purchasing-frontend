@@ -4,7 +4,7 @@
    padding-top: 10px;
    padding-bottom: 15px;
    border-bottom: 1px solid $border_color;
-   @include centeredContainer(1170px);
+   @include centeredContainer($main_wrapper_width);
    background: $main_wrapper_color;
 
    .navigation-main {

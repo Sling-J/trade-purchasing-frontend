@@ -6,8 +6,11 @@ import {urls} from "../config/urls";
 
 import Auth from "./Auth/Auth";
 import Personal from "./Personal/Personal";
+import Profile from "./Personal/Profile/Profile";
+import Orders from "./Personal/Orders/Orders";
 
 import Header from "./Header/Header";
+import Breadcrumbs from "./Breadcrumbs/Breadcrumbs";
 
 const Root = () => (
    <Fragment>
@@ -15,8 +18,12 @@ const Root = () => (
       <Header/>
 
       <div className="wrapper">
+         <Breadcrumbs/>
+
          <Switch>
-            <Route path={urls.personal.path} component={Personal}/>
+            <Route exact path={urls.personal.path} component={Personal}/>
+            <Route path={urls.profile.path} component={Profile}/>
+            <Route path={urls.orders.path} component={Orders}/>
          </Switch>
       </div>
    </Fragment>

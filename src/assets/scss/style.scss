@@ -9,10 +9,10 @@ html, body {
 }
 
 .wrapper {
-   @include centeredContainer(1170px);
+   @include centeredContainer($main_wrapper_width);
    background: $main_wrapper_color;
    padding: 20px 30px 30px 30px;
-   height: 100vh;
+   height: 86.5vh;
 }
 
 body ul, body li, body p,
@@ -21,4 +21,8 @@ body h4, body h5, body h6 {
    list-style-type: none;
    padding: 0;
    margin: 0;
+}
+
+.breadcrumbs {
+   margin-bottom: 10px;
 }
