@@ -1,0 +1,147 @@
+@import "partials";
+
+.company-products-container {
+   .company-products-container__main {
+      .products-container-main__categories {
+         width: 21%;
+         
+         .products-container-main-categories__title {
+            -webkit-box-shadow: 0 5px 10px #ccc;
+         }
+
+         .products-container-main-categories__box {
+            border: 1px solid $border_color;
+
+            .company-products-container-main-box-categories__item {
+               border-bottom: 1px solid $border_color;
+               transition: all 0.3s;
+               cursor: pointer;
+               padding: 10px;
+
+               &:last-child {
+                  border-bottom: none;
+               }
+
+               &:hover {
+                  background: $border_color;
+               }
+            }
+         }
+      }
+
+      .products-container-main__news {
+         width: 57%;
+         position: relative;
+
+         &:hover {
+            .products-container-main-news__left-stick,
+            .products-container-main-news__right-stick {
+               background: rgba(255, 255, 255, 0.8);
+            }
+         }
+
+         .products-container-main-news__left-stick,
+         .products-container-main-news__right-stick {
+            background: rgba(255, 255, 255, 0.6);
+            color: $primary_font;
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            transition: all 0.3s;
+            z-index: 999;
+
+            &:hover {
+               background: rgba(255, 255, 255, 1);
+               color: $primary_font;
+            }
+         }
+
+         .products-container-main-news__left-stick {
+            left: 20px;
+         }
+
+         .products-container-main-news__right-stick {
+            right: 20px;
+         }
+
+         .ant-carousel .slick-slide img {
+            width: 100%;
+         }
+      }
+
+      .products-container-main__auth {
+         width: 21%;
+         border: 1px solid $border_color;
+         padding: 50px 30px 20px;
+         text-align: center;
+
+         .products-container-main-auth__title {
+            font-size: 20px;
+            line-height: 1.3;
+         }
+
+         .products-container-main-auth__action {
+            margin: 40px 0 30px;
+
+            .products-container-main-auth-action__sign-up {
+               margin-top: 10px;
+               font-size: 14px;
+               font-weight: 600;
+               color: $primary_font;
+               cursor: pointer;
+
+               &:hover {
+                  text-decoration: underline;
+               }
+            }
+
+            .products-container-main-auth-action__greet {
+               font-weight: 600;
+               color: $primary_font;
+               font-size: 17px;
+            }
+
+            .products-container-main-auth-action__list {
+               margin-top: 40px;
+               text-align: left;
+
+               .products-container-main-auth-action-list__item {
+                  margin-bottom: 5px;
+
+                  &:last-child {
+                     margin-bottom: 0;
+                  }
+
+                  &:hover {
+                     .products-container-main-auth-action-list-item__pg {
+                        text-decoration: underline;
+                     }
+                  }
+
+                  .products-container-main-auth-action-list-item__mLogo {
+                     color: $theme_color;
+                     font-size: 20px;
+                     width: 30px;
+                  }
+
+                  .products-container-main-auth-action-list-item__pg {
+                     width: 120px;
+                     color: $primary_font;
+                     font-size: 14px;
+                  }
+
+                  .products-container-main-auth-action-list-item__sLogo {
+                     width: 30px;
+                     margin-top: 1px;
+                     font-size: 13px;
+                     text-align: right;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

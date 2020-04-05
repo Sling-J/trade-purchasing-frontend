@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 
 import {Button, Result} from "antd";
+import {Link} from "react-router-dom";
+import {urls} from "../../config/urls";
 
 class ErrorBoundary extends Component {
    state = {
@@ -25,9 +27,11 @@ class ErrorBoundary extends Component {
                status="warning"
                title="Есть некоторые проблемы с вашей работой."
                extra={
-                  <Button type="primary" key="console">
-                     Назад
-                  </Button>
+                  <Link to={urls.home.path}>
+                     <Button type="primary" key="console">
+                        Назад
+                     </Button>
+                  </Link>
                }
             />
          );

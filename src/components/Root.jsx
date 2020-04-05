@@ -4,6 +4,7 @@ import {Switch, Route} from "react-router-dom";
 
 import {urls} from "../config/urls";
 
+import Home from "./Home/Home";
 import Auth from "./Auth/Auth";
 import Personal from "./Personal/Personal";
 import Profile from "./Personal/Profile/Profile";
@@ -13,6 +14,7 @@ import Orders from "./Personal/Orders/Orders";
 
 import Header from "./Header/Header";
 import Breadcrumbs from "./Breadcrumbs/Breadcrumbs";
+import CompanyProducts from "./CompanyProducts/CompanyProducts";
 
 const Root = () => (
    <Fragment>
@@ -26,11 +28,13 @@ const Root = () => (
 
          <div className="wrapper-color">
             <Switch>
+               <Route exact path={urls.home.path} component={Home}/>
+               <Route exact path={urls.companyProducts.path} component={CompanyProducts}/>
                <Route exact path={urls.personal.path} component={Personal}/>
                <Route path={urls.profile.path} component={Profile}/>
-               <Route path={urls.orders.path} component={Orders}/>
-               <Route path={urls.cart.path} component={Cart}/>
                <Route path={urls.wishes.path} component={Wishes}/>
+               <Route path={urls.cart.path} component={Cart}/>
+               <Route path={urls.orders.path} component={Orders}/>
             </Switch>
          </div>
       </div>

@@ -17,9 +17,9 @@ const Header = () => {
       <nav className="navigation flex j-sb fa-center">
          <div className="navigation-main">
             <div className="flex fa-center">
-               <p className="navigation-main__logo">
+               <Link to={urls.home.path} className="navigation-main__logo">
                   TRADE
-               </p>
+               </Link>
 
                <div className="navigation-main__search">
                   <Search placeholder="Поиск товаров" onSearch={value => console.log(value)} enterButton/>
@@ -28,10 +28,14 @@ const Header = () => {
 
             <ul className="navigation-main__menu flex">
                <li className="navigation-main-menu__item">
-                  <a className="navigation-main-menu-item__link" href="#">Главная</a>
+                  <Link className="navigation-main-menu-item__link" to={urls.home.path}>
+                     Главная
+                  </Link>
                </li>
                <li className="navigation-main-menu__item">
-                  <a className="navigation-main-menu-item__link" href="#">Список желаний</a>
+                  <Link className="navigation-main-menu-item__link" to={urls.wishes.path}>
+                     Список желаний
+                  </Link>
                </li>
                <li className="navigation-main-menu__item">
                   <a className="navigation-main-menu-item__link" href="#">Регистрация компании</a>

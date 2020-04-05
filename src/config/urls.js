@@ -1,5 +1,7 @@
 export const urls = {
    user: {path: '/user'},
+   home: {path: '/', name: 'Главная'},
+   companyProducts: {path: '/company-products', name: 'Товары компании'},
    signIn: {path: '/user/sign-in', name: 'Авторизация'},
    signUp: {path: '/user/sign-up', name: 'Регистрация'},
    personal: {path: '/personal', name: 'Личный кабинет'},

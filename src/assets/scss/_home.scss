@@ -1,0 +1,32 @@
+@import "partials";
+
+.home-container {
+   .home-container__nav {
+      margin-bottom: 30px;
+
+      .home-container-nav__title {
+         margin-bottom: 0;
+      }
+
+      .home-container-nav__field {
+         width: 30%;
+      }
+   }
+
+   .home-container__companies {
+      .home-container-companies__item {
+         width: 18%;
+         vertical-align: top;
+         margin-bottom: 20px;
+         margin-right: 34.5px;
+
+         &:nth-child(5n) {
+            margin-right: 0;
+         }
+
+         .home-container-companies-item__more {
+            margin-top: 20px;
+         }
+      }
+   }
+}

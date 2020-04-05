@@ -1,7 +1,7 @@
 import React from "react";
-
 import {Link, withRouter} from 'react-router-dom';
-import {Breadcrumb, Tooltip} from 'antd';
+
+import {Breadcrumb} from 'antd';
 import {HomeOutlined} from "@ant-design/icons";
 
 import {urls} from "../../config/urls";
@@ -12,6 +12,7 @@ const breadcrumbNameMap = {
    [urls.orders.path]: urls.orders.name,
    [urls.cart.path]: urls.cart.name,
    [urls.wishes.path]: urls.wishes.name,
+   [urls.companyProducts.path]: urls.companyProducts.name,
 };
 const Breadcrumbs = withRouter(props => {
    const {location} = props;
@@ -29,11 +30,9 @@ const Breadcrumbs = withRouter(props => {
 
    const breadcrumbItems = [
       <Breadcrumb.Item key="home">
-         <Tooltip title="Главная">
-            <Link to="/">
-               <HomeOutlined/>
-            </Link>
-         </Tooltip>
+         <Link to="/">
+            <HomeOutlined/> Главная
+         </Link>
       </Breadcrumb.Item>,
    ].concat(extraBreadcrumbItems);
 
