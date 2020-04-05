@@ -8,6 +8,7 @@ import Auth from "./Auth/Auth";
 import Personal from "./Personal/Personal";
 import Profile from "./Personal/Profile/Profile";
 import Cart from "./Personal/Cart/Cart";
+import Wishes from "./Personal/Wishes/Wishes";
 import Orders from "./Personal/Orders/Orders";
 
 import Header from "./Header/Header";
@@ -29,7 +30,7 @@ const Root = () => (
                <Route path={urls.profile.path} component={Profile}/>
                <Route path={urls.orders.path} component={Orders}/>
                <Route path={urls.cart.path} component={Cart}/>
-               <Route path={urls.wishes.path} component={Cart}/>
+               <Route path={urls.wishes.path} component={Wishes}/>
             </Switch>
          </div>
       </div>
