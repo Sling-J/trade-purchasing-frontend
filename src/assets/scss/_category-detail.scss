@@ -1,0 +1,51 @@
+@import "partials";
+
+.category-container {
+   .category-container__products {
+      .category-container-products__item {
+         width: 20%;
+         border: 1px solid transparent;
+         text-align: center;
+         cursor: pointer;
+         transition: all 0.2s;
+         padding: 25px 15px;
+
+         &:hover {
+            border-color: $border_color;
+         }
+
+         .category-container-products-item__img {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+               width: 100%;
+            }
+         }
+
+         .category-container-products-item__price {
+            font-size: 28px;
+            color: $primary_font;
+            font-weight: 600;
+            margin-top: 10px;
+         }
+
+         .category-container-products-item__name {
+            margin-bottom: 30px;
+            color: $primary_font;
+            font-weight: 300;
+            font-size: 17px;
+         }
+
+         .category-container-products-item__buy {
+            button:first-child {
+               margin-right: 15px;
+            }
+         }
+      }
+   }
+}

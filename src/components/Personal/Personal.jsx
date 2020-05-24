@@ -73,24 +73,6 @@ const Personal = () => {
                <Meta title="ИСТОРИЯ ЗАКАЗОВ" description="Статус заказов"/>
             </Card>
 
-            <Tooltip title="Регистрация компании">
-               <Card
-                  className="personal-container-box-list__item personal-container-box-list__item-cancel"
-                  hoverable
-                  cover={
-                     <div className="personal-container-box-list-item__overlay">
-                        <div className="personal-container-box-list-item-overlay__img">
-                           <img alt="Personal Area" src={CardBg}/>
-                        </div>
-
-                        <FormOutlined/>
-                     </div>
-                  }
-               >
-                  <Meta title="РЕГИСТРАЦИЯ КОМПАНИИ" description="Для выставление своих компаний"/>
-               </Card>
-            </Tooltip>
-
             <Card
                className="personal-container-box-list__item personal-container-box-list__item-cancel"
                onClick={() => changeUrl(urls.wishes.path)}
@@ -108,8 +90,28 @@ const Personal = () => {
                <Meta title="СПИСОК ЖЕЛАНИЙ" description="Избранные товары"/>
             </Card>
 
+            <Tooltip title="Регистрация компании">
+               <Card
+                  className="personal-container-box-list__item personal-container-box-list__item-cancel"
+                  onClick={() => changeUrl(urls.companyCreating.path)}
+                  hoverable
+                  cover={
+                     <div className="personal-container-box-list-item__overlay">
+                        <div className="personal-container-box-list-item-overlay__img">
+                           <img alt="Personal Area" src={CardBg}/>
+                        </div>
+
+                        <FormOutlined/>
+                     </div>
+                  }
+               >
+                  <Meta title="РЕГИСТРАЦИЯ КОМПАНИИ" description="Для выставление своих компаний"/>
+               </Card>
+            </Tooltip>
+
             <Card
                className="personal-container-box-list__item personal-container-box-list__item-cancel"
+               onClick={() => changeUrl(urls.companyList.path)}
                hoverable
                cover={
                   <div className="personal-container-box-list-item__overlay">
@@ -121,7 +123,7 @@ const Personal = () => {
                   </div>
                }
             >
-               <Meta title="КОНТАКТЫ" description="Наши контакты"/>
+               <Meta title="МОИ КОМПАНИИ" description="Список ваших созданных компании"/>
             </Card>
          </div>
       </PersonalArea>

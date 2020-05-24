@@ -1,6 +1,10 @@
 @import "partials";
 @import "company-products";
+@import "category-detail";
+@import "product-detail";
+@import "company-list";
 @import "personal";
+@import "profile";
 @import "header";
 @import "wishes";
 @import "home";
@@ -24,7 +28,7 @@ html, body {
 
 .wrapper-color {
    background: $main_wrapper_color;
-   padding: 0 30px 50px 30px;
+   padding: 20px 30px 100px 30px;
 }
 
 body ul, body li, body p,
@@ -37,4 +41,11 @@ body h4, body h5, body h6 {
 
 .breadcrumbs {
    margin-bottom: 10px;
+}
+
+.hidden-root {
+   .navigation,
+   .wrapper {
+      display: none;
+   }
 }

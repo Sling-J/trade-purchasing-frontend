@@ -1,11 +1,13 @@
 import React from 'react';
+import {connect} from "react-redux";
 import {NavLink} from "react-router-dom";
 
 import {Button} from "antd";
 
 import {urls} from "../../config/urls";
+import {logout} from "../../ducks/Auth";
 
-const PersonalSideBar = () => (
+const PersonalSideBar = ({logout}) => (
    <div className="personal-container-box__text">
       <ul className="personal-container-box__info">
          <li className="personal-container-box-info__item">
@@ -55,15 +57,28 @@ const PersonalSideBar = () => (
             </NavLink>
          </li>
          <li className="personal-container-box-info__item">
-            <a href="#" className="personal-container-box-info-item__link">Регистрация компаний</a>
+            <NavLink
+               to={urls.companyCreating.path}
+               className="personal-container-box-info-item__link"
+               activeClassName="personal-container-box-info-item__link-active"
+            >
+               Регистрация компаний
+            </NavLink>
          </li>
          <li className="personal-container-box-info__item">
-            <a href="#" className="personal-container-box-info-item__link">Контакты</a>
+            <NavLink
+               to={urls.companyList.path}
+               className="personal-container-box-info-item__link"
+               activeClassName="personal-container-box-info-item__link-active"
+            >
+               Мои компании
+            </NavLink>
          </li>
       </ul>
 
       <Button
          className="personal-container-box__exit"
+         onClick={logout}
          type="primary"
          size="large"
          block
@@ -73,4 +88,6 @@ const PersonalSideBar = () => (
    </div>
 );
 
-export default PersonalSideBar;
+export default connect(null, {
+   logout
+})(PersonalSideBar);

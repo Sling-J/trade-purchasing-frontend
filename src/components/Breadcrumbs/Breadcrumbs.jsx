@@ -13,6 +13,9 @@ const breadcrumbNameMap = {
    [urls.cart.path]: urls.cart.name,
    [urls.wishes.path]: urls.wishes.name,
    [urls.companyProducts.path]: urls.companyProducts.name,
+   [urls.productDetail.path]: urls.productDetail.name,
+   [urls.companyCreating.path]: urls.companyCreating.name,
+   [urls.companyList.path]: urls.companyList.name,
 };
 const Breadcrumbs = withRouter(props => {
    const {location} = props;

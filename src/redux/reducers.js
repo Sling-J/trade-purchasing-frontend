@@ -1,9 +1,11 @@
-import {connectRouter} from "connected-react-router";
 import {combineReducers} from "redux";
 
-import authReducer, {moduleName as authModule} from "../ducks/Auth";
+import profileReducer, {moduleName as profileModule} from "../ducks/Auth";
+import authReducer, {moduleName as authModule} from "../ducks/Profile";
+import companyReducer, {moduleName as companyModule} from "../ducks/Company";
 
-export default history => combineReducers({
-   router: connectRouter(history),
-   [authModule]: authReducer
+export default combineReducers({
+   [profileModule]: profileReducer,
+   [companyModule]: companyReducer,
+   [authModule]: authReducer,
 });

@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {connect} from "react-redux";
 
 import {Input, Form, Button} from "antd";
 import {UserOutlined, KeyOutlined} from '@ant-design/icons';
+import {moduleName as authModule, signIn} from "../../ducks/Auth";
 
-const SignIn = () => {
-   const onFinish = values => console.log('Success:', values);
+const SignIn = ({loadingOfLogin, errorOfLogin, signIn}) => {
+   const [errorMessage, setErrorMessage] = useState('');
+
+   useEffect(() => {
+      if (errorOfLogin) {
+         setErrorMessage('Неверные данные, попробуйте снова!');
+      }
+   }, [errorOfLogin]);
+
+   const onFinish = values => {
+      localStorage.setItem('cart', '[]');
+      signIn(values)
+   };
    const onFinishFailed = errorInfo => console.log('Failed:', errorInfo);
 
    return (
@@ -28,8 +41,16 @@ const SignIn = () => {
             <Input.Password size="large" placeholder="Пароль" prefix={<KeyOutlined/>}/>
          </Form.Item>
 
+         <p style={{color: '#FF4D4F', textAlign: 'center'}}>{errorMessage}</p>
+
          <Form.Item>
-            <Button className="auth-container-route__form-item" type="primary" htmlType="submit" block>
+            <Button
+               className="auth-container-route__form-item"
+               type="primary"
+               htmlType="submit"
+               block
+               loading={loadingOfLogin}
+            >
                Войти
             </Button>
          </Form.Item>
@@ -37,4 +58,16 @@ const SignIn = () => {
    );
 };
 
-export default SignIn;
+const mapStateToProps = state => ({
+   loadingOfLogin: state[authModule].loadingOfLogin,
+   errorOfLogin: state[authModule].errorOfLogin
+});
+
+const mapDispatchToProps = {
+   signIn
+};
+
+export default connect(
+   mapStateToProps,
+   mapDispatchToProps
+)(SignIn);

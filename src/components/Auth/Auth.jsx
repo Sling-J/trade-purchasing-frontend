@@ -1,9 +1,10 @@
 import React from 'react';
 
-import {Route, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 import {LoginOutlined, UserAddOutlined} from '@ant-design/icons';
 
+import PrivateRoute from "../Containers/PrivateRoute";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
@@ -31,8 +32,8 @@ const Auth = () => {
             </div>
 
             <div className="auth-container__route">
-               <Route path={urls.signIn.path} component={SignIn}/>
-               <Route path={urls.signUp.path} component={SignUp}/>
+               <PrivateRoute path={urls.signIn.path} component={SignIn}/>
+               <PrivateRoute path={urls.signUp.path} component={SignUp}/>
             </div>
          </div>
       </div>

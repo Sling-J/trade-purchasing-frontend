@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from "react-redux";
 import {ConfigProvider} from 'antd';
-import {ConnectedRouter} from 'connected-react-router';
+import {Router} from 'react-router-dom'
 
 import ruRU from 'antd/es/locale/ru_RU';
 import history from "./config/history";
@@ -14,11 +14,11 @@ import Root from './components/Root';
 const App = () => (
    <Provider store={store}>
       <ConfigProvider locale={ruRU}>
-         <ConnectedRouter history={history}>
+         <Router history={history}>
             <ErrorBoundary>
                <Root/>
             </ErrorBoundary>
-         </ConnectedRouter>
+         </Router>
       </ConfigProvider>
    </Provider>
 );

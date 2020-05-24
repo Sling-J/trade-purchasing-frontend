@@ -36,7 +36,8 @@
 
             .navigation-main-menu-item__link {
                color: $primary_font;
-               transition: all 0.1s;
+               cursor: pointer;
+               transition: all 0s;
                @include defaultListHover(none, $theme_color);
             }
          }
@@ -45,6 +46,21 @@
 
    .navigation-user {
       padding-right: 30px;
+
+      .navigation-user-info__auth {
+         color: $primary_font;
+         font-size: 16px;
+         display: block;
+         transition: all 0s;
+         @include defaultListHover(none, $theme_color);
+         text-align: center;
+
+         &:first-child {
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid $border_color;
+         }
+      }
 
       .navigation-user-info {
          margin-bottom: 15px;
