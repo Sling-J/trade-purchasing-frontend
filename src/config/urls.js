@@ -3,6 +3,7 @@ export const urls = {
    signIn: {path: '/user/sign-in', name: 'Авторизация'},
    signUp: {path: '/user/sign-up', name: 'Регистрация'},
    home: {path: '/', name: 'Главная'},
+   products: {path: '/products', name: 'Товары'},
    companyProducts: {path: '/company-products/:id', name: 'Товары компании'},
    companyUpdateName: {path: '/company-products/:id/update-company', name: 'Редактирование компании'},
    companyUpdateCategory: {path: '/company-products/:id/update-category', name: 'Редактирование категориев'},

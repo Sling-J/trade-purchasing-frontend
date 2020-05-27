@@ -16,9 +16,18 @@ const GET_MY_COMPANIES_REQUEST = `${prefix}/GET_MY_COMPANIES_REQUEST`;
 const GET_MY_COMPANIES_SUCCESS = `${prefix}/GET_MY_COMPANIES_SUCCESS`;
 const GET_MY_COMPANIES_FAILURE = `${prefix}/GET_MY_COMPANIES_FAILURE`;
 
+const GET_COMPANY_PRODUCTS_REQUEST = `${prefix}/GET_COMPANY_PRODUCTS_REQUEST`;
+const GET_COMPANY_PRODUCTS_SUCCESS = `${prefix}/GET_COMPANY_PRODUCTS_SUCCESS`;
+const GET_COMPANY_PRODUCTS_FAILURE = `${prefix}/GET_COMPANY_PRODUCTS_FAILURE`;
+
 const GET_PROFILE_REQUEST = `${prefix}/GET_PROFILE_REQUEST`;
 const GET_PROFILE_SUCCESS = `${prefix}/GET_PROFILE_SUCCESS`;
 const GET_PROFILE_FAILURE = `${prefix}/GET_PROFILE_FAILURE`;
+
+const GET_PRODUCTS_REQUEST = `${prefix}/GET_PRODUCTS_REQUEST`;
+const GET_PRODUCTS_SUCCESS = `${prefix}/GET_PRODUCTS_SUCCESS`;
+const GET_PRODUCTS_FAILURE = `${prefix}/GET_PRODUCTS_FAILURE`;
+
 
 const GET_COMPANY_DETAIL_REQUEST = `${prefix}/GET_COMPANY_DETAIL_REQUEST`;
 const GET_COMPANY_DETAIL_SUCCESS = `${prefix}/GET_COMPANY_DETAIL_SUCCESS`;
@@ -56,6 +65,14 @@ export const initialState = {
    companies: [],
    loadingOfCompanies: false,
    errorOfCompanies: null,
+
+   products: [],
+   loadingOfProducts: false,
+   errorOfProducts: null,
+
+   companyProducts: [],
+   loadingOfCompanyProducts: false,
+   errorOfCompanyProducts: null,
 
    myCompanies: [],
    loadingOfMyCompanies: false,
@@ -110,6 +127,29 @@ export default (state = initialState, action) => {
             errorOfProfile: action.error
          };
 
+      case GET_PRODUCTS_REQUEST:
+         return {
+            ...state,
+            loadingOfProducts: true,
+            errorOfProducts: null
+         };
+
+      case GET_PRODUCTS_SUCCESS:
+         return {
+            ...state,
+            products: action.payload,
+            loadingOfProducts: false,
+            errorOfProducts: null
+         };
+
+      case GET_PRODUCTS_FAILURE:
+         return {
+            ...state,
+            products: {},
+            loadingOfProducts: false,
+            errorOfProducts: action.error
+         };
+
       case GET_MY_COMPANIES_REQUEST:
          return {
             ...state,
@@ -128,9 +168,32 @@ export default (state = initialState, action) => {
       case GET_MY_COMPANIES_FAILURE:
          return {
             ...state,
-            userData: {},
+            myCompanies: [],
             loadingOfMyCompanies: false,
             errorOfMyCompanies: action.error
+         };
+
+      case GET_COMPANY_PRODUCTS_REQUEST:
+         return {
+            ...state,
+            loadingOfCompanyProducts: true,
+            errorOfCompanyProducts: null
+         };
+
+      case GET_COMPANY_PRODUCTS_SUCCESS:
+         return {
+            ...state,
+            companyProducts: action.payload,
+            loadingOfCompanyProducts: false,
+            errorOfCompanyProducts: null
+         };
+
+      case GET_COMPANY_PRODUCTS_FAILURE:
+         return {
+            ...state,
+            companyProducts: [],
+            loadingOfCompanyProducts: false,
+            errorOfCompanyProducts: action.error
          };
 
       case CREATE_COMPANY_REQUEST:
@@ -292,6 +355,11 @@ export default (state = initialState, action) => {
  * Actions
  */
 
+export const setDisplayedProducts = products => ({
+   type: GET_PRODUCTS_SUCCESS,
+   payload: products
+});
+
 export const getProfile = () => {
    const request = () => ({type: GET_PROFILE_REQUEST});
    const success = data => ({type: GET_PROFILE_SUCCESS, payload: data});
@@ -300,6 +368,19 @@ export const getProfile = () => {
    return dispatch => {
       dispatch(request());
       Profile.get()
+         .then(res => dispatch(success(res.data)))
+         .catch(err => dispatch(failure(err.response.data)))
+   };
+};
+
+export const getCompanyProducts = id => {
+   const request = () => ({type: GET_COMPANY_PRODUCTS_REQUEST});
+   const success = data => ({type: GET_COMPANY_PRODUCTS_SUCCESS, payload: data});
+   const failure = error => ({type: GET_COMPANY_PRODUCTS_FAILURE, error});
+
+   return dispatch => {
+      dispatch(request());
+      Company.getProducts(id)
          .then(res => dispatch(success(res.data)))
          .catch(err => dispatch(failure(err.response.data)))
    };
@@ -351,6 +432,19 @@ export const getCompanies = () => {
    return dispatch => {
       dispatch(request());
       Company.get()
+         .then(res => dispatch(success(res.data)))
+         .catch(err => dispatch(failure(err.message)))
+   };
+};
+
+export const getProducts = () => {
+   const request = () => ({type: GET_PRODUCTS_REQUEST});
+   const success = data => ({type: GET_PRODUCTS_SUCCESS, payload: data});
+   const failure = error => ({type: GET_PRODUCTS_FAILURE, error});
+
+   return dispatch => {
+      dispatch(request());
+      Products.get()
          .then(res => dispatch(success(res.data)))
          .catch(err => dispatch(failure(err.message)))
    };

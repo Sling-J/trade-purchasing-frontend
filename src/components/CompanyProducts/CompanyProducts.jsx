@@ -5,23 +5,27 @@ import {Link} from "react-router-dom";
 import CompanyProductsCategories from "./CompanyProductsCategories";
 import CompanyProductsMain from "./CompanyProductsMain";
 import CompanyProductsAuth from "./CompanyProductsAuth";
-// import CompanyProductsList from "./CompanyProductsList";
+import CompanyProductsList from "./CompanyProductsList";
 import PageLoading from "../Containers/PageLoading";
 
-import {getCompanyDetail, getProfile, moduleName as companyModule} from "../../ducks/Company";
+import {getCompanyDetail, getProfile, getCompanyProducts, moduleName as companyModule} from "../../ducks/Company";
 
 import {Button} from "antd";
 
-const CompanyProducts = ({getCompanyDetail, getProfile, userData, loadingOfProfile, companyDetail, loadingOfCompanyDetail, match}) => {
-
-
+const CompanyProducts = ({
+   getCompanyDetail, getCompanyProducts, getProfile,
+   loadingOfCompanyProducts, companyProducts, userData,
+   loadingOfProfile, companyDetail, loadingOfCompanyDetail,
+   match, cart, setCart
+}) => {
    useEffect(() => {
       getCompanyDetail(match.params.id);
+      getCompanyProducts(match.params.id);
       getProfile();
-   }, [getCompanyDetail, getProfile, match.params.id]);
+   }, [getCompanyDetail, getCompanyProducts, getProfile, match.params.id]);
 
    return (
-      <PageLoading loading={loadingOfCompanyDetail || loadingOfProfile}>
+      <PageLoading loading={loadingOfCompanyDetail || loadingOfProfile || loadingOfCompanyProducts}>
          <div className="company-products-container">
             <h1 className="company-products-container__title main-title">
                Компания {companyDetail.name}
@@ -60,7 +64,12 @@ const CompanyProducts = ({getCompanyDetail, getProfile, userData, loadingOfProfi
                />
             </div>
 
-            {/*<CompanyProductsList/>*/}
+            <CompanyProductsList
+               companyProducts={companyProducts}
+               companyDetail={companyDetail}
+               setCart={setCart}
+               cart={cart}
+            />
          </div>
       </PageLoading>
    );
@@ -71,10 +80,13 @@ const mapStateToProps = state => ({
    loadingOfCompanyDetail: state[companyModule].loadingOfCompanyDetail,
    userData: state[companyModule].userData,
    loadingOfProfile: state[companyModule].loadingOfProfile,
+   companyProducts: state[companyModule].companyProducts,
+   loadingOfCompanyProducts: state[companyModule].loadingOfCompanyProducts,
 });
 
 const mapDispatchToProps = dispatch => ({
    getCompanyDetail: id => dispatch(getCompanyDetail(id)),
+   getCompanyProducts: id => dispatch(getCompanyProducts(id)),
    getProfile: () => dispatch(getProfile()),
 });
 

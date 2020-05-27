@@ -48,6 +48,7 @@ export const Company = {
    getCategories: id => instance.get(`/companies/${id}/categories/`),
    getOrders: id => instance.get(`/companies/${id}/orders/`),
    getDetail: id => instance.get(`/companies/${id}/`),
+   getProducts: id => instance.get(`/companies/${id}/products`),
    get: () => instance.get(`/companies/`),
    getMyCompanies: () => instance.get(`/companies/my`),
 };

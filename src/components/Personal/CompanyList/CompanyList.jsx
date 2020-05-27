@@ -6,7 +6,6 @@ import {Button} from "antd";
 
 import PersonalArea from "../../Containers/PersonalArea";
 import PageLoading from "../../Containers/PageLoading";
-import {urls} from "../../../config/urls";
 
 import {getMyCompanies, moduleName as companyModule} from "../../../ducks/Company";
 
@@ -21,8 +20,12 @@ const CompanyList = ({getMyCompanies, myCompanies, loadingOfMyCompanies}) => {
       <PersonalArea title="Мои компании">
          <PageLoading loading={loadingOfMyCompanies}>
             <div className="companies-container flex flex-wrap">
-               {myCompanies.map(company => (
-                  <Link to="/" className="companies-container__item">
+               {myCompanies.map((company, idx) => (
+                  <Link
+                     className="companies-container__item"
+                     to={`/company-products/${company.id}`}
+                     key={idx}
+                  >
                      <p className="companies-container-item__title">
                         {company.name}
                      </p>

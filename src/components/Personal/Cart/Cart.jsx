@@ -23,7 +23,10 @@ const Cart = ({cart, setCart}) => {
                   <div className="cart-container-table__item flex fa-center j-sb" key={idx}>
                      <div className="cart-container-table-item__info flex fa-center">
                         <Tooltip title="Удалить">
-                           <div className="cart-container-table-item-info__action" onClick={() => deleteFromCart(item, setCart)}>
+                           <div
+                              className="cart-container-table-item-info__action"
+                              onClick={() => deleteFromCart(item, setCart)}
+                           >
                               <DeleteOutlined/>
                            </div>
                         </Tooltip>

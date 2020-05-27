@@ -27,11 +27,17 @@ const CategoryDetail = ({match, getCompanyDetail, cart, setCart, companyDetail, 
             </h1>
 
             <div className="category-container__products flex flex-wrap">
-               {category.products && category.products.map(product => {
+               {category.products && category.products.map((product, idx) => {
                   const productsIsExist = cart && cart.find(item => item.id === product.id);
 
                   return (
-                     <div className="category-container-products__item" onClick={() => history.push(`/company-products/${match.params.id}/category/${match.params.categoryId}/product/${product.id}`)}>
+                     <div
+                        className="category-container-products__item"
+                        onClick={() => history.push(
+                           `/company-products/${match.params.id}/category/${match.params.categoryId}/product/${product.id}`
+                        )}
+                        key={idx}
+                     >
                         <div className="category-container-products-item__img">
                            <img src={TestImg} alt="New product"/>
                         </div>

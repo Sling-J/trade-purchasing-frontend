@@ -26,7 +26,7 @@
          .products-container-main-categories__box {
             border: 1px solid $border_color;
 
-            .company-products-container-main-box-categories__item {
+            .company-products-container-main-box-categories__itaem {
                border-bottom: 1px solid $border_color;
                display: block;
                transition: all 0.3s;
@@ -175,7 +175,8 @@
 
          .company-products-container-list-item__products {
             .company-products-container-list-item-products__item {
-               width: 20%;
+               width: 16.66%;
+               position: relative;
                border: 1px solid transparent;
                text-align: center;
                cursor: pointer;
@@ -187,8 +188,8 @@
                }
 
                .company-products-container-list-item-products-item__img {
-                  width: 200px;
-                  height: 200px;
+                  width: 150px;
+                  height: 150px;
                   margin: 0 auto;
                   display: flex;
                   justify-content: center;
@@ -200,20 +201,31 @@
                }
 
                .company-products-container-list-item-products-item__name {
-                  margin-bottom: 30px;
                   color: $primary_font;
-                  font-weight: 300;
-                  font-size: 18px;
+                  font-size: 16px;
+                  font-weight: 400;
+                  margin-bottom: 10px;
                }
 
                .company-products-container-list-item-products-item__price {
-                  font-size: 28px;
+                  font-size: 26px;
                   color: $primary_font;
                   font-weight: 600;
                   margin-top: 10px;
                }
 
+               .company-products-container-list-item-products-item__category {
+                  font-size: 15px;
+                  margin-bottom: 50px;
+                  text-align: left;
+               }
+
                .company-products-container-list-item-products-item__buy {
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  bottom: 20px;
+
                   button:first-child {
                      margin-right: 15px;
                   }

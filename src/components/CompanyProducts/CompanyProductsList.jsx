@@ -1,95 +1,74 @@
 import React from 'react';
 
 import {Button} from "antd";
-import {HeartOutlined, ShoppingCartOutlined} from "@ant-design/icons";
-import {authMessage} from "../../config/utils";
+import {CheckOutlined, HeartOutlined, ShoppingCartOutlined} from "@ant-design/icons";
+import {addToCart, authMessage, checkAuth, deleteFromCart} from "../../config/utils";
 
 import TestImg from "../../assets/img/test-product.jpg";
-import TestImg2 from "../../assets/img/test-company.jpg";
 import history from "../../config/history";
 
-const CompanyProductsList = () => {
-   return (
-      <div className="company-products-container__list">
-         <div className="company-products-container-list__item">
-            <h1 className="company-products-container-list-item__title main-title">
-               Новинки
-            </h1>
+const CompanyProductsList = ({companyProducts, companyDetail, setCart, cart}) => (
+   <div className="company-products-container__list">
+      <div className="company-products-container-list__item">
+         <h1 className="company-products-container-list-item__title main-title">
+            Продукты компании
+         </h1>
 
-            <div className="company-products-container-list-item__products flex flex-wrap">
-               <div
-                  onClick={() => history.push("/company-products/phone/samsung")}
-                  className="company-products-container-list-item-products__item"
-               >
-                  <div className="company-products-container-list-item-products-item__img">
-                     <img src={TestImg} alt="New product"/>
+         <div className="company-products-container-list-item__products flex flex-wrap">
+            {companyProducts.map((item, idx) => {
+               const currentCategory = companyDetail && companyDetail.categories.find(category => category.products.find(product => product.id === item.id));
+               const productsIsExist = cart && cart.find(data => data.id === item.id);
+
+               return (
+                  <div
+                     onClick={() => history.push(
+                        `/company-products/${item.company_id}/category/${item.category_id}/product/${item.id}`
+                     )}
+                     className="company-products-container-list-item-products__item"
+                     key={idx}
+                  >
+                     <div className="company-products-container-list-item-products-item__img">
+                        <img src={TestImg} alt="New product"/>
+                     </div>
+
+                     <p className="company-products-container-list-item-products-item__price">
+                        {item.price} ₸
+                     </p>
+
+                     <p className="company-products-container-list-item-products-item__name">
+                        {item.name}
+                     </p>
+
+                     <p className="company-products-container-list-item-products-item__category">
+                        Категория - {currentCategory && currentCategory.name}
+                     </p>
+
+                     <div className="company-products-container-list-item-products-item__buy flex j-center">
+                        <Button
+                           onClick={e => {
+                              e.stopPropagation();
+
+                              if (checkAuth) {
+                                 productsIsExist
+                                    ? deleteFromCart(item, setCart)
+                                    : addToCart(item, setCart)
+                              } else {
+                                 authMessage()
+                              }
+                           }}
+                           type="primary"
+                           icon={productsIsExist ? <CheckOutlined/> : <ShoppingCartOutlined/>}
+                        >
+                           Купить
+                        </Button>
+                        <Button icon={<HeartOutlined/>}/>
+                     </div>
                   </div>
-
-                  <p className="company-products-container-list-item-products-item__price">
-                     235 800 ₸
-                  </p>
-
-                  <p className="company-products-container-list-item-products-item__name">
-                     Смарт-часы Xiaomi Amazfit GTS A1914, Lava Grey
-                  </p>
-
-                  <div className="company-products-container-list-item-products-item__buy flex j-center">
-                     <Button
-                        onClick={e => {
-                           e.stopPropagation();
-                           authMessage();
-                        }}
-                        type="primary"
-                        icon={<ShoppingCartOutlined/>}
-                     >
-                        Купить
-                     </Button>
-                     <Button icon={<HeartOutlined/>}/>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         <div className="company-products-container-list__item">
-            <h1 className="company-products-container-list-item__title main-title">
-               Топ товары
-            </h1>
-
-            <div className="company-products-container-list-item__products flex flex-wrap">
-               <div
-                  onClick={() => history.push("/company-products/phone/samsung")}
-                  className="company-products-container-list-item-products__item"
-               >
-                  <div className="company-products-container-list-item-products-item__img">
-                     <img src={TestImg2} alt="New product"/>
-                  </div>
-
-                  <p className="company-products-container-list-item-products-item__price">
-                     235 800 ₸
-                  </p>
-
-                  <p className="company-products-container-list-item-products-item__name">
-                     Смарт-часы Xiaomi Amazfit GTS A1914, Lava Grey
-                  </p>
-
-                  <div className="company-products-container-list-item-products-item__buy flex j-center">
-                     <Button
-                        onClick={e => {
-                           e.stopPropagation();
-                           authMessage();
-                        }}
-                        type="primary"
-                        icon={<ShoppingCartOutlined/>}
-                     >
-                        Купить
-                     </Button>
-                     <Button icon={<HeartOutlined/>}/>
-                  </div>
-               </div>
-            </div>
+               );
+            })}
          </div>
       </div>
-   );
-};
+   </div>
+);
 
 export default CompanyProductsList;

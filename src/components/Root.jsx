@@ -22,6 +22,7 @@ import Header from "./Header/Header";
 import {urls} from "../config/urls";
 import PublicRoute from "./Containers/PublicRoute";
 import history from "../config/history";
+import Products from "./Products/Products";
 
 const Root = () => {
    const [cart, setCart] = useState([]);
@@ -57,14 +58,11 @@ const Root = () => {
          <Header count={cart && cart.length}/>
 
          <div className="wrapper">
-            {/*<div className="wrapper-breadcrumbs">*/}
-            {/*   <Breadcrumbs/>*/}
-            {/*</div>*/}
-
             <div className="wrapper-color">
                <Switch>
                   <PublicRoute exact path={urls.home.path} component={Home}/>
-                  <PublicRoute exact path={urls.companyProducts.path} component={CompanyProducts}/>
+                  <PublicRoute exact path={urls.companyProducts.path} component={CompanyProducts} cart={cart}
+                               setCart={setCart}/>
 
                   <PublicRoute restricted exact path={urls.companyUpdateName.path} component={CompanyUpdateName}/>
                   <PublicRoute restricted exact path={urls.companyUpdateCategory.path}
@@ -75,6 +73,8 @@ const Root = () => {
                   <PublicRoute exact path={urls.categoryDetail.path} component={CategoryDetail} cart={cart}
                                setCart={setCart}/>
                   <PublicRoute exact path={urls.productDetail.path} component={ProductDetail} cart={cart}
+                               setCart={setCart}/>
+                  <PublicRoute exact path={urls.products.path} component={Products} cart={cart}
                                setCart={setCart}/>
 
                   <PublicRoute restricted exact path={urls.companyCreating.path} component={CompanyCreating}/>

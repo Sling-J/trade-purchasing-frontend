@@ -4,6 +4,7 @@
    .category-container__products {
       .category-container-products__item {
          width: 20%;
+         position: relative;
          border: 1px solid transparent;
          text-align: center;
          cursor: pointer;
@@ -35,13 +36,32 @@
          }
 
          .category-container-products-item__name {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             color: $primary_font;
-            font-weight: 300;
-            font-size: 17px;
+            font-weight: 400;
+            font-size: 16px;
+         }
+
+         .search-products {
+            margin-bottom: 10px;
+            font-weight: 500;
+         }
+
+         .search-category {
+            margin-bottom: 50px;
+         }
+
+         .category-container-products-item__company {
+            font-size: 16px;
+            text-align: left;
          }
 
          .category-container-products-item__buy {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
+
             button:first-child {
                margin-right: 15px;
             }
