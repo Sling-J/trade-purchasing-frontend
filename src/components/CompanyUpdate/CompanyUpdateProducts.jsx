@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {connect} from 'react-redux';
 
 import PageLoading from "../Containers/PageLoading";
@@ -10,6 +10,7 @@ import {matchNumber} from "../../config/utils";
 import Img from '../../assets/img/test-product.jpg'
 
 const CompanyUpdateProducts = ({match, getCompanyDetail, loadingOfCompanyDetail, companyDetail, updateProduct, loadingOfProductCreating, categoryCreatedStatus, createProduct}) => {
+   const fileInput = useRef();
    const [visible, setVisible] = useState({
       open: false,
       isCreate: false
@@ -27,6 +28,7 @@ const CompanyUpdateProducts = ({match, getCompanyDetail, loadingOfCompanyDetail,
    useEffect(() => {
       if (categoryCreatedStatus) {
          setFile(null);
+         fileInput.current.files = [];
          setName('');
          setDescription('');
          setPrice('');
@@ -111,6 +113,7 @@ const CompanyUpdateProducts = ({match, getCompanyDetail, loadingOfCompanyDetail,
                      accept="image/*"
                      defaultValue={file}
                      onChange={e => setFile(e.target.files[0])}
+                     ref={fileInput}
                   />
                </div>
 
@@ -184,7 +187,7 @@ const CompanyUpdateProducts = ({match, getCompanyDetail, loadingOfCompanyDetail,
 
                   <div className="update-products-container__list">
                      {category.products.length !== 0 ? category.products.map((product, idx) => (
-                        <div className="update-products-container-list__item" onClick={() => {
+                        <div className="update-products-container-list__item" key={idx} onClick={() => {
                            showModal(false);
                            setProductId(product.id);
 

@@ -11,6 +11,7 @@ import history from "../../config/history";
 import {getCompanyDetail, moduleName as companyModule} from "../../ducks/Company";
 
 import TestImg from "../../assets/img/test-product.jpg";
+import {baseMedia} from "../../service";
 
 const CategoryDetail = ({match, getCompanyDetail, cart, setCart, companyDetail, loadingOfCompanyDetail}) => {
    useEffect(() => {
@@ -39,7 +40,7 @@ const CategoryDetail = ({match, getCompanyDetail, cart, setCart, companyDetail, 
                         key={idx}
                      >
                         <div className="category-container-products-item__img">
-                           <img src={TestImg} alt="New product"/>
+                           <img src={baseMedia + product.avatar || TestImg} alt="New product"/>
                         </div>
 
                         <p className="category-container-products-item__price">

@@ -282,6 +282,7 @@
 
    .update-products-container__list {
       display: flex;
+      flex-wrap: wrap;
 
       .update-products-container-list__item {
          display: block;

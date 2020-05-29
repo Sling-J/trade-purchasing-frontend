@@ -22,15 +22,22 @@ const Products = ({getCompanies, products, companies, loadingOfProducts, cart, s
             <div className='category-container__products flex flex-wrap'>
                {products.length !== 0 ? products.map((product, idx) => {
                   const productsIsExist = cart && cart.find(item => item.id === product.id);
-                  const currentCompany = companies.find(company => company.categories.find(category => category.products.find(item => item.id === product.id)));
-                  const currentCategory = currentCompany && currentCompany.categories.find(category => category.products.find(item => item.id === product.id));
+                  const currentCompany = companies.find(company =>
+                     company.categories ? company.categories.find(category =>
+                        category.products ? category.products.find(item => item.id === product.id) : {}
+                     ) : {}
+                  );
+
+                  const currentCategory = currentCompany.categories && currentCompany.categories.find(category =>
+                     category.products && category.products.find(item => item.id === product.id)
+                  );
 
                   return (
                      <div className="category-container-products__item" key={idx} onClick={() => history.push(
                         `/company-products/${product.company_id}/category/${product.category_id}/product/${product.id}`
                      )}>
                         <div className="category-container-products-item__img">
-                           <img src={TestImg} alt="New product"/>
+                           <img src={product.avatar || TestImg} alt="New product"/>
                         </div>
 
                         <p className="category-container-products-item__price">

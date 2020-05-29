@@ -11,7 +11,7 @@ import {
 
 import CheckAuth, {Authorized, Unauthorized} from "../Containers/CheckAuth";
 import {
-   getProducts, setDisplayedProducts,
+   getProducts, setDisplayedProducts, getCompanies,
    moduleName as companyModule
 } from "../../ducks/Company";
 
@@ -21,10 +21,11 @@ import history from "../../config/history";
 
 const {Search} = Input;
 
-const Header = ({count, getProducts, products, setDisplayedProducts}) => {
+const Header = ({count, getProducts, products, getCompanies, setDisplayedProducts}) => {
    useEffect(() => {
+      getCompanies();
       getProducts();
-   }, [getProducts]);
+   }, [getCompanies, getProducts]);
 
    const dynamicSearch = value => {
       const searchQuery = value.toLowerCase();
@@ -158,6 +159,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
    getProducts,
+   getCompanies,
    setDisplayedProducts
 };
 

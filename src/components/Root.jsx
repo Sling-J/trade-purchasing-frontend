@@ -51,7 +51,6 @@ const Root = () => {
       })
    }, []);
 
-
    return (
       <div className={hiddenRootClass}>
          <Route path={urls.user.path} component={Auth}/>

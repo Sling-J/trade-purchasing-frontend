@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {urls} from "./config/urls";
 
-export const baseUrl = 'https://trade-purchasing.herokuapp.com/api';
-export const baseMedia = 'https://trade-purchasing.herokuapp.com';
+export const baseUrl = 'http://167.71.3.152:3321/api';
+export const baseMedia = 'http://167.71.3.152:3321';
 
 export const instance = axios.create({
    baseURL: baseUrl,

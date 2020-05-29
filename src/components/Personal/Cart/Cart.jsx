@@ -7,6 +7,7 @@ import {DeleteOutlined} from "@ant-design/icons";
 
 import TestProduct from "../../../assets/img/test-product.jpg";
 import {deleteFromCart, matchNumber} from "../../../config/utils";
+import {baseMedia} from "../../../service";
 
 const Cart = ({cart, setCart}) => {
    const price = cart.length !== 0
@@ -32,7 +33,7 @@ const Cart = ({cart, setCart}) => {
                         </Tooltip>
 
                         <div className="cart-container-table-item-info__img">
-                           <img src={TestProduct} alt="Cart"/>
+                           <img src={baseMedia + item.avatar || TestProduct} alt="Cart"/>
                         </div>
 
                         <div className="cart-container-table-item-info__product">
